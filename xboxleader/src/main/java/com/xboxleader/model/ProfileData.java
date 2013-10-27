@@ -1,5 +1,7 @@
 package com.xboxleader.model;
 
+import java.util.List;
+
 public class ProfileData {
 	private String gamertag;
 	private String tier;
@@ -13,6 +15,8 @@ public class ProfileData {
 	private String biography;
 	private String freshness;
 	private Badges badges;
+	private Avatar avatar;
+	private List<RecentActivity> recentactivity;
 	
 	/**
 	 * @return the gamertag
@@ -201,6 +205,40 @@ public class ProfileData {
 	}
 
 
+	/**
+	 * @return the avatar
+	 */
+	public Avatar getAvatar() {
+		return avatar;
+	}
+
+
+	/**
+	 * @param avatar the avatar to set
+	 */
+	public void setAvatar(Avatar avatar) {
+		this.avatar = avatar;
+	}
+
+
+
+
+	/**
+	 * @return the recentactivity
+	 */
+	public List<RecentActivity> getRecentactivity() {
+		return recentactivity;
+	}
+
+
+	/**
+	 * @param recentactivity the recentactivity to set
+	 */
+	public void setRecentactivity(List<RecentActivity> recentactivity) {
+		this.recentactivity = recentactivity;
+	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -211,7 +249,8 @@ public class ProfileData {
 				+ ", presence=" + presence + ", online=" + online + ", motto="
 				+ motto + ", name=" + name + ", location=" + location
 				+ ", biography=" + biography + ", freshness=" + freshness
-				+ ", badges=" + badges + "]";
+				+ ", badges=" + badges + ", avatar=" + avatar
+				+ ", recentactivity=" + recentactivity + "]";
 	}
 	
 	
