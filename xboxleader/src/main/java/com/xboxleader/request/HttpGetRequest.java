@@ -15,9 +15,11 @@ import com.xboxleader.URL;
 public final class HttpGetRequest<T> extends HttpRequest<T> {
 	private final String path;
 	private final Class<T> clazz;
+	private final String apiKey;
 	
-	public HttpGetRequest(String path,Class<T> clazz) 
+	public HttpGetRequest(String apiKey,String path,Class<T> clazz) 
 	{
+		this.apiKey = apiKey;
 		this.path = path;
 		this.clazz = clazz;
 	}//end constructor
@@ -27,6 +29,9 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 	{
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpGet get = new HttpGet(String.format(URL.BASE.toString(), path));
+		
+		if (apiKey != null)
+			get.addHeader("X-Mashape-Authorization", apiKey);
 		try 
 		{
 			HttpResponse response = client.execute(get);
@@ -35,6 +40,7 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 				String result = EntityUtils.toString(response.getEntity());
 				return new Gson().fromJson(result, clazz);
 			}
+			System.err.println(response.getStatusLine()+ ": " + EntityUtils.toString(response.getEntity()));
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
