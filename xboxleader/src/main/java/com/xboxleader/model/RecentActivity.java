@@ -1,8 +1,10 @@
 package com.xboxleader.model;
 
+import java.math.BigInteger;
+
 
 public class RecentActivity {
-	private int id;
+	private BigInteger id;
 	private boolean isapp;
 	private String title;
 	private Avatar artwork;
@@ -30,7 +32,7 @@ public class RecentActivity {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public BigInteger getId() {
 		return id;
 	}
 	
@@ -38,7 +40,7 @@ public class RecentActivity {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 	
