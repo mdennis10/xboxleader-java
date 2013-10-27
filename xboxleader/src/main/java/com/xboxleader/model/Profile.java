@@ -1,27 +1,27 @@
 package com.xboxleader.model;
 
 public class Profile {
-	private String succes;
+	private String status;
 	private String version;
 	private double runtime;
 	private ProfileData data;
 	
 	
 	/**
-	 * @return the succes
+	 * @return the status
 	 */
-	public String getSucces() 
+	public String getStatus() 
 	{
-		return succes;
+		return status;
 	}
 	
 	
 	/**
-	 * @param succes the succes to set
+	 * @param status the status to set
 	 */
-	public void setSucces(String succes) 
+	public void setStatus(String status) 
 	{
-		this.succes = succes;
+		this.status = status;
 	}
 	
 	
@@ -80,7 +80,7 @@ public class Profile {
 	 */
 	@Override
 	public String toString() {
-		return "Profile [succes=" + succes + ", version=" + version
+		return "Profile [status=" + status + ", version=" + version
 				+ ", runtime=" + runtime + ", data=" + data + "]";
 	}
 
