@@ -12,7 +12,7 @@ public class ProfileData {
 	private String location;
 	private String biography;
 	private String freshness;
-	
+	private Badges badges;
 	
 	/**
 	 * @return the gamertag
@@ -185,6 +185,22 @@ public class ProfileData {
 	}
 
 
+	/**
+	 * @return the badges
+	 */
+	public Badges getBadges() {
+		return badges;
+	}
+
+
+	/**
+	 * @param badges the badges to set
+	 */
+	public void setBadges(Badges badges) {
+		this.badges = badges;
+	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -194,7 +210,8 @@ public class ProfileData {
 				+ ", gamerscore=" + gamerscore + ", reputation=" + reputation
 				+ ", presence=" + presence + ", online=" + online + ", motto="
 				+ motto + ", name=" + name + ", location=" + location
-				+ ", biography=" + biography + ", freshness=" + freshness + "]";
+				+ ", biography=" + biography + ", freshness=" + freshness
+				+ ", badges=" + badges + "]";
 	}
 	
 	
