@@ -4,6 +4,9 @@ public class Profile {
 	private String succes;
 	private String version;
 	private double runtime;
+	private ProfileData data;
+	
+	
 	/**
 	 * @return the succes
 	 */
@@ -56,16 +59,29 @@ public class Profile {
 	}
 
 
+	/**
+	 * @return the data
+	 */
+	public ProfileData getData() {
+		return data;
+	}
+
+
+	/**
+	 * @param data the data to set
+	 */
+	public void setData(ProfileData data) {
+		this.data = data;
+	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Profile [succes=" + succes + ", version=" + version
-				+ ", runtime=" + runtime + "]";
+				+ ", runtime=" + runtime + ", data=" + data + "]";
 	}
-	
 
-	
-	
 }
