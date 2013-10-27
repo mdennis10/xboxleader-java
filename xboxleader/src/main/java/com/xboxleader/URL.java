@@ -5,7 +5,7 @@ package com.xboxleader;
  * @author mario
  */
 public enum URL {
-	BASE ("https://www.xboxleaders.com/api/2.0/");
+	BASE ("https://www.xboxleaders.com/api/2.0/%s");
 	private String url;
 	
 	URL (String url)
