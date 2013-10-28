@@ -1,5 +1,11 @@
 package com.xboxleader.request;
 
+/**
+ * Request Interface that all request class
+ * should implement.
+ * @author mario 
+ * @param <T>
+ */
 public interface Request <T> {
 	
 	/**
