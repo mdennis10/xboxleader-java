@@ -40,7 +40,8 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 				String result = EntityUtils.toString(response.getEntity());
 				return new Gson().fromJson(result, clazz);
 			}
-			System.err.println(response.getStatusLine()+ ": " + EntityUtils.toString(response.getEntity()));
+			else
+				new Exception (response.getStatusLine()+ ": " + EntityUtils.toString(response.getEntity()));
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
