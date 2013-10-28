@@ -14,21 +14,38 @@ public class XboxLeader {
 	private final String apiKey;
 	private String region;
 	
+	
+	/**
+	 * XboxLeader Overrided Constructor. 
+	 * [Note] By using this contructor
+	 * all API calls will be to Mashape.
+	 * @author mario
+	 * @param apiKey
+	 * @param region
+	 */
 	public XboxLeader (String apiKey,String region)
 	{
 		this.apiKey = apiKey;
 		this.region = region;
-	}
+	}//end Overrided constructor 
 	
+	
+	/**
+	 * XboxLeader Overrided Constructor. 
+	 *[Note] By using this contructor
+	 * all API calls will be to Mashape.
+	 * @author mario
+	 * @param apiKey
+	 */
 	public XboxLeader (String apiKey)
 	{
 		this.apiKey = apiKey;
-	}
+	}//end Overrided constructor
 	
 	public XboxLeader ()
 	{
 		apiKey = null;
-	}
+	}//end Default construtor
 	
 	/**
 	 * Set region
