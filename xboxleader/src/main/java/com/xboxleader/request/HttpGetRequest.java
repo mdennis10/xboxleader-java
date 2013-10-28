@@ -42,10 +42,8 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 			}
 			System.err.println(response.getStatusLine()+ ": " + EntityUtils.toString(response.getEntity()));
 		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
