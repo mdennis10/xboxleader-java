@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import com.xboxleader.model.Achievement;
+import com.xboxleader.model.Friend;
 import com.xboxleader.model.Game;
 import com.xboxleader.model.Profile;
 import com.xboxleader.request.HttpGetRequest;
@@ -13,16 +14,30 @@ public class XboxLeader {
 	private final String apiKey;
 	private String region;
 	
+	public XboxLeader (String apiKey,String region)
+	{
+		this.apiKey = apiKey;
+		this.region = region;
+	}
+	
 	public XboxLeader (String apiKey)
 	{
 		this.apiKey = apiKey;
 	}
 	
-	
 	public XboxLeader ()
 	{
 		apiKey = null;
-	}//
+	}
+	
+	/**
+	 * Set region
+	 * @param region
+	 */
+	public void setRegion (Region region)
+	{
+		this.region = region.toString();
+	}//end getRegion method
 	
 	
 	/**
@@ -107,6 +122,7 @@ public class XboxLeader {
 		
 		if (gameId == null)
 			throw new NullPointerException("null argument supplied for gameId");
+		
 		String path = null;
 		try {
 			path = String.format("/achievements.json?gamertag=%s&region=%s&gameid=%s", 
@@ -118,5 +134,26 @@ public class XboxLeader {
 		return request.execute();
 	}//end getAchievement method
 	
+	
+	/**
+	 * Get Xbox Live Friends.
+	 * @author Mario
+	 * @param gamerTag
+	 * @return Friend 
+	 */
+	public Friend getFriend (String gamerTag)
+	{
+		if (gamerTag == null)
+			throw new NullPointerException("null argument supplied for gamertag");
+		
+		String path = null;
+		try {
+			path = String.format("/friends.json?gamertag=%s&region=%s", URLEncoder.encode(gamerTag, "utf-8"),getRegion());
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		Request<Friend> request = new HttpGetRequest<Friend>(gamerTag, path, Friend.class);
+		return request.execute();
+	}//end getFriend method
 	
 }//end XboxLeader class
