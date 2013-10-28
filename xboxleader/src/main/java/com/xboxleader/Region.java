@@ -8,11 +8,11 @@ public enum Region {
 	Region(String region) 
 	{
 		this.region = region;
-	}
+	}//end constructor
 	
 	@Override
 	public String toString() 
 	{
 		return region;
-	}
+	}//end toString method
 }//end Region enum
