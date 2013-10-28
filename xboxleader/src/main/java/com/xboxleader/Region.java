@@ -1,5 +1,10 @@
 package com.xboxleader;
 
+/**
+ * 
+ * Region enum class
+ * @author mario
+ */
 public enum Region {
 	AUSTRALIA ("en-AU"),
 	UNITED_STATES ("en-US");
