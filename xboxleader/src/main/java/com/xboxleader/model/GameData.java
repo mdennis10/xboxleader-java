@@ -7,7 +7,7 @@ public class GameData {
 	private String gamertag,freshness;
 	private GamerScore gamerscore;
 	private Achievements achievements;
-	private List<Games> games;
+	private List<GameList> games;
 
 	
 
@@ -111,7 +111,7 @@ public class GameData {
 	/**
 	 * @return the games
 	 */
-	public List<Games> getGames() {
+	public List<GameList> getGames() {
 		return games;
 	}
 
@@ -119,7 +119,7 @@ public class GameData {
 	/**
 	 * @param games the games to set
 	 */
-	public void setGames(List<Games> games) {
+	public void setGames(List<GameList> games) {
 		this.games = games;
 	}
 

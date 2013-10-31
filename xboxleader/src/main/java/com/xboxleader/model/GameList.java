@@ -2,7 +2,7 @@ package com.xboxleader.model;
 
 import java.math.BigInteger;
 
-public class Games {
+public class GameList {
 	private BigInteger id;
 	private boolean isapp;
 	private String title;
@@ -90,4 +90,4 @@ public class Games {
 		builder.append("]");
 		return builder.toString();
 	}
-}//end Games class
+}//end GameList class
