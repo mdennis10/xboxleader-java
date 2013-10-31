@@ -23,7 +23,7 @@ public class XboxLeaderTest {
 		Assert.assertNotNull(profile.getData().getBadges());
 		Assert.assertNotNull(profile.getData().getAvatar());
 		Assert.assertNotNull(profile.getData().getRecentactivity());
-		Assert.assertNotNull(profile.getData().getRecentactivity());
+		Assert.assertFalse(profile.getData().getRecentactivity().isEmpty());
 	}//end getProfile method
 	
 	
@@ -33,6 +33,8 @@ public class XboxLeaderTest {
 		Game games = xboxLeader.getGame(gamerTag);
 		Assert.assertNotNull(games);
 		Assert.assertNotNull(games.getData());
+		Assert.assertNotNull(games.getData().getGames());
+		Assert.assertFalse(games.getData().getGames().isEmpty());
 	}//end getGames method 
 	
 	
@@ -42,6 +44,8 @@ public class XboxLeaderTest {
 		Achievement achievement = xboxLeader.getAchievement(gamerTag,"1297287449");
 		Assert.assertNotNull(achievement);
 		Assert.assertNotNull(achievement.getData());
+		Assert.assertNotNull(achievement.getData().getAchievements());
+		Assert.assertFalse(achievement.getData().getAchievements().isEmpty());
 	}//end getAchievement method
 	
 	
