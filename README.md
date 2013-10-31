@@ -26,9 +26,9 @@ Mashape:
   setRegion (Region region)
   
 ##Links
-Learn About API:
- https://www.mashape.com/xboxleaders/XboxLeadersAPI
- https://www.xboxleaders.com/
+  Learn About API: https://www.xboxleaders.com/
+  Learn About Mashape: https://www.mashape.com/xboxleaders/XboxLeadersAPI
+ 
  
  
 ## Necessary prerequisites
