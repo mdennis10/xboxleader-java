@@ -25,6 +25,11 @@ Mashape:
   getRegion ()
   setRegion (Region region)
   
+##Links
+Learn About API:
+ https://www.mashape.com/xboxleaders/XboxLeadersAPI
+ https://www.xboxleaders.com/
+ 
  
 ## Necessary prerequisites
  Java 1.5 or higher,Gson,Apache HttpClient,Maven
