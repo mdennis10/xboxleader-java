@@ -69,7 +69,7 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 				return new Gson().fromJson(result, clazz);
 			}
 			
-			else //throws exception when unsuccessful request returned
+			else //throws exception when unsuccessful response returned
 			{
 				StringBuilder builder = new StringBuilder(response.getStatusLine().toString());
 				builder.append(EntityUtils.toString(response.getEntity()));
