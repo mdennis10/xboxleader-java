@@ -18,17 +18,7 @@ Mashape:
      Profile profile = xboxLeader.getProfile(gamerTag);
      
 #### Api methods Covered
-  getProfile (String gamerTag)
-  
-  getGame (String gamerTag)
-  
-  getAchievement (String gamerTag,String gameId)
-  
-  getFriend (String gamerTag)
-  
-  getRegion ()
-  
-  setRegion (Region region)
+
   
 ##Links
   Learn About API: https://www.xboxleaders.com/
