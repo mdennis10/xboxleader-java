@@ -13,6 +13,14 @@ import com.google.gson.Gson;
 import com.xboxleader.URL;
 import com.xboxleader.exception.XboxLeaderException;
 
+/**
+ * HttpGetRequest is used to execute a HTTP
+ * Request using the HTTP GET method. This class 
+ * is thread-safe and cannot be sub-classed.
+ * @author mario
+ *
+ * @param <T>
+ */
 public final class HttpGetRequest<T> extends HttpRequest<T> {
 	private final String path;
 	private final Class<T> clazz;
@@ -25,17 +33,26 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 		this.clazz = clazz;
 	}//end constructor
 	
+	
+	/**
+	 * Executes Http GET request
+	 * @author mario
+	 */
 	@Override
 	public T execute() 
 	{
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpGet get = null;
 		
+		/*
+		 * Add Mashape API and adjust
+		 * request to Mashape.
+		 */
 		if (apiKey != null)
 		{
 			get = new HttpGet(String.format(URL.MASHAPE.toString(), path));
 			get.addHeader("X-Mashape-Authorization", apiKey);
-		}
+		}//end if
 		else
 			get = new HttpGet(String.format(URL.BASE.toString(), path));
 		try 
@@ -47,7 +64,7 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 				String result = EntityUtils.toString(response.getEntity());
 				return new Gson().fromJson(result, clazz);
 			}
-			else
+			else //throws exception when unsuccessful request returned
 				throw new XboxLeaderException(EntityUtils.toString(response.getEntity()));
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
@@ -56,6 +73,5 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 		}
 		return null;
 	}//end execute method
-	
 	
 }//end HttpGetRequest class

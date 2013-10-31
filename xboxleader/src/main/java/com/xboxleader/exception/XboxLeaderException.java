@@ -1,5 +1,12 @@
 package com.xboxleader.exception;
 
+/**
+ * XboxLeaderException should be thrown 
+ * when an unsuccessful API request occurs. 
+ * 
+ * @author mario
+ *
+ */
 public class XboxLeaderException extends RuntimeException{
 	private static final long serialVersionUID = -7540554363142297342L;
 	private final String message;

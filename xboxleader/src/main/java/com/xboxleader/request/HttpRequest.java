@@ -9,10 +9,10 @@ package com.xboxleader.request;
 public abstract class HttpRequest <T> implements Request<T>{
 
 	/**
-         * Executes HTTP Request. All base classes
-         * must provide there own implementation
-         * of this method.
-         */
+     * Executes HTTP Request. All base classes
+     * must provide there own implementation
+     * of this method.
+     */
 	public abstract T execute();
 	
 }//end HttpRequest
