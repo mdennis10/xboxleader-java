@@ -28,10 +28,15 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 	public T execute() 
 	{
 		HttpClient client = HttpClientBuilder.create().build();
-		HttpGet get = new HttpGet(String.format(URL.BASE.toString(), path));
+		HttpGet get = null;
 		
 		if (apiKey != null)
+		{
+			get = new HttpGet(String.format(URL.MASHAPE.toString(), path));
 			get.addHeader("X-Mashape-Authorization", apiKey);
+		}
+		else
+			get = new HttpGet(String.format(URL.BASE.toString(), path));
 		try 
 		{
 			HttpResponse response = client.execute(get);

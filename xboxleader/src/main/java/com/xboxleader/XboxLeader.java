@@ -2,6 +2,9 @@ package com.xboxleader;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import com.xboxleader.model.Achievement;
 import com.xboxleader.model.Friend;
@@ -90,14 +93,11 @@ public class XboxLeader {
 		if (gamerTag == null)
 			throw new NullPointerException("null argument supplied for gamertag");
 		
-		String path = null;
-		try {
-			path = String.format("/profile.json?gamertag=%s&region=%s", URLEncoder.encode(gamerTag, "utf-8"),getRegion());
-					
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		Request<Profile> request = new HttpGetRequest<Profile>(getApiKey(),path, Profile.class);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("gamertag", gamerTag);
+		map.put(region, getRegion());
+		
+		Request<Profile> request = new HttpGetRequest<Profile>(getApiKey(),buildPath(map,"/profile.json"), Profile.class);
 		return request.execute();
 	}//end getProfile method
 	
@@ -113,14 +113,12 @@ public class XboxLeader {
 	{
 		if (gamerTag == null)
 			throw new NullPointerException("null argument supplied for gamertag");
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("gamertag", gamerTag);
+		map.put("region", getRegion());
 		
-		String path = null;
-		try {
-			path = String.format("/games.json?gamertag=%s&region=%s", URLEncoder.encode(gamerTag, "utf-8"),getRegion());
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		Request<Game> request = new HttpGetRequest<Game>(getApiKey(),path, Game.class);
+		Request<Game> request = new HttpGetRequest<Game>(getApiKey(),buildPath(map, "/games.json"), Game.class);
 		return request.execute();
 	}//end getGames method
 	
@@ -140,14 +138,12 @@ public class XboxLeader {
 		if (gameId == null)
 			throw new NullPointerException("null argument supplied for gameId");
 		
-		String path = null;
-		try {
-			path = String.format("/achievements.json?gamertag=%s&region=%s&gameid=%s", 
-								 URLEncoder.encode(gamerTag, "utf-8"),getRegion(),gameId);
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		Request<Achievement> request = new HttpGetRequest<Achievement>(getApiKey(), path, Achievement.class);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("gamertag", gamerTag);
+		map.put("gameid", gameId);
+		map.put("region",getRegion());
+		
+		Request<Achievement> request = new HttpGetRequest<Achievement>(getApiKey(), buildPath(map, "/achievements.json"), Achievement.class);
 		return request.execute();
 	}//end getAchievement method
 	
@@ -163,14 +159,33 @@ public class XboxLeader {
 		if (gamerTag == null)
 			throw new NullPointerException("null argument supplied for gamertag");
 		
-		String path = null;
-		try {
-			path = String.format("/friends.json?gamertag=%s&region=%s", URLEncoder.encode(gamerTag, "utf-8"),getRegion());
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		Request<Friend> request = new HttpGetRequest<Friend>(gamerTag, path, Friend.class);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("gamertag", gamerTag);
+		map.put("region", getRegion());
+		
+		Request<Friend> request = new HttpGetRequest<Friend>(getApiKey(), buildPath(map, "/friends.json"), Friend.class);
 		return request.execute();
 	}//end getFriend method
 	
+	
+	/*
+	 * Build URL path need for request
+	 */
+	private String buildPath (Map<String, String> map,String path)
+	{
+		StringBuffer buffer = new StringBuffer(path).append("?");
+		
+		//cycles through all Map Entry and build up URL
+		for (Entry<String,String> entry:map.entrySet())
+		{
+			buffer.append(entry.getKey()).append("=");
+			//encodes Map values to utf-8
+			try {
+				buffer.append(URLEncoder.encode(entry.getValue(), "utf-8")).append("&");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		return buffer.toString();
+	}//end buildPath method
 }//end XboxLeader class
