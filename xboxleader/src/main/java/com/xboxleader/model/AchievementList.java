@@ -4,6 +4,7 @@ public class AchievementList {
 	private int id,gamerscore;
 	private String title,description,unlockdate;
 	private boolean secret,unlock;
+	private Artwork artwork;
 	
 	/**
 	 * @return the id
@@ -116,7 +117,64 @@ public class AchievementList {
 		this.unlock = unlock;
 	}
 
+	/**
+	 * @return the artwork
+	 */
+	public Artwork getArtwork() {
+		return artwork;
+	}
 
+
+	/**
+	 * @param artwork the artwork to set
+	 */
+	public void setArtwork(Artwork artwork) {
+		this.artwork = artwork;
+	}
+
+	public class Artwork {
+		private String locked,unlocked;
+
+		/**
+		 * @return the locked
+		 */
+		public String getLocked() {
+			return locked;
+		}
+
+		/**
+		 * @param locked the locked to set
+		 */
+		public void setLocked(String locked) {
+			this.locked = locked;
+		}
+
+		/**
+		 * @return the unlocked
+		 */
+		public String getUnlocked() {
+			return unlocked;
+		}
+
+		/**
+		 * @param unlocked the unlocked to set
+		 */
+		public void setUnlocked(String unlocked) {
+			this.unlocked = unlocked;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			StringBuilder builder = new StringBuilder();
+			builder.append("Artwork [locked=").append(locked)
+					.append(", unlocked=").append(unlocked).append("]");
+			return builder.toString();
+		}
+	}//end Artwork class
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -127,7 +185,8 @@ public class AchievementList {
 				.append(", gamerscore=").append(gamerscore).append(", title=")
 				.append(title).append(", description=").append(description)
 				.append(", unlockdate=").append(unlockdate).append(", secret=")
-				.append(secret).append(", unlock=").append(unlock).append("]");
+				.append(secret).append(", unlock=").append(unlock)
+				.append(", artwork=").append(artwork).append("]");
 		return builder.toString();
 	}
 	

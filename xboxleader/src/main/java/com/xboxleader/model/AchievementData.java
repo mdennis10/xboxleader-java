@@ -9,7 +9,6 @@ public class AchievementData {
 	private AchievementAttr achievement;
 	private List<AchievementList> achievements;
 	
-	
 	/**
 	 * @return the gamertag
 	 */
