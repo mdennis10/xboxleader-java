@@ -11,6 +11,7 @@ import org.apache.http.util.EntityUtils;
 
 import com.google.gson.Gson;
 import com.xboxleader.URL;
+import com.xboxleader.exception.XboxLeaderException;
 
 public final class HttpGetRequest<T> extends HttpRequest<T> {
 	private final String path;
@@ -40,13 +41,14 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 		try 
 		{
 			HttpResponse response = client.execute(get);
+
 			if (response.getStatusLine().getStatusCode() == 200)
 			{
 				String result = EntityUtils.toString(response.getEntity());
 				return new Gson().fromJson(result, clazz);
 			}
 			else
-				new Exception (response.getStatusLine()+ ": " + EntityUtils.toString(response.getEntity()));
+				throw new XboxLeaderException(EntityUtils.toString(response.getEntity()));
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
