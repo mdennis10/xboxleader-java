@@ -17,6 +17,7 @@ Mashape:
      XboxLeader xboxLeader = new XboxLeader (api);
      Profile profile = xboxLeader.getProfile(gamerTag);
      
+     
 #### Api methods Covered
   getProfile (String gamerTag)
   getGame (String gamerTag)
@@ -24,10 +25,13 @@ Mashape:
   getFriend (String gamerTag)
   getRegion ()
   setRegion (Region region)
+  
  
  ## Necessary prerequisites
+ 
   Java 1.5 or higher,Gson,Apache HttpClient,Maven
  
  
  #### Building the source
+ 
   Sources can be built using Maven. The POM.xml contains all dependency required.
