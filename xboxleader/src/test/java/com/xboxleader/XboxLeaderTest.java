@@ -50,6 +50,9 @@ public class XboxLeaderTest {
 	{
 		Friend friend = xboxLeader.getFriend(gamerTag);
 		Assert.assertNotNull(friend);
+		Assert.assertNotNull(friend.getData());
+		Assert.assertNotNull(friend.getData().getFriends());
+		Assert.assertFalse(friend.getData().getFriends().isEmpty());
 	}//end getFriend method
 	
 	

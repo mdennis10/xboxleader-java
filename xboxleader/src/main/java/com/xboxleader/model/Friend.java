@@ -3,6 +3,7 @@ package com.xboxleader.model;
 public class Friend {
 	private String status,version;
 	private double runtime;
+	private FriendData data;
 
 
 	/**
@@ -55,19 +56,31 @@ public class Friend {
 	
 	
 
+	/**
+	 * @return the data
+	 */
+	public FriendData getData() {
+		return data;
+	}
+
+
+	/**
+	 * @param data the data to set
+	 */
+	public void setData(FriendData data) {
+		this.data = data;
+	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Friend [status=");
-		builder.append(status);
-		builder.append(", version=");
-		builder.append(version);
-		builder.append(", runtime=");
-		builder.append(runtime);
-		builder.append("]");
+		builder.append("Friend [status=").append(status).append(", version=")
+				.append(version).append(", runtime=").append(runtime)
+				.append(", data=").append(data).append("]");
 		return builder.toString();
 	}
 

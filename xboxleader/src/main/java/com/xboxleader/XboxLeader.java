@@ -168,18 +168,21 @@ public class XboxLeader {
 	}//end getFriend method
 	
 	
-	/*
-	 * Build URL path need for request
+	/**
+	 * Build URL path need for request.
+	 * @author mario
+	 * @param Map<String,String>
+	 * @param path
 	 */
 	private String buildPath (Map<String, String> map,String path)
 	{
 		StringBuffer buffer = new StringBuffer(path).append("?");
 		
-		//cycles through all Map Entry and build up URL
+		//cycles through all Map Entries and build up URL
 		for (Entry<String,String> entry:map.entrySet())
 		{
 			buffer.append(entry.getKey()).append("=");
-			//encodes Map values to utf-8
+			//encodes Map values to UTF-8
 			try {
 				buffer.append(URLEncoder.encode(entry.getValue(), "utf-8")).append("&");
 			} catch (UnsupportedEncodingException e) {
@@ -188,4 +191,5 @@ public class XboxLeader {
 		}
 		return buffer.toString();
 	}//end buildPath method
+	
 }//end XboxLeader class
