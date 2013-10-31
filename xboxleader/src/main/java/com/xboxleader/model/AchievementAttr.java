@@ -1,6 +1,6 @@
 package com.xboxleader.model;
 
-public class Achievements {
+public class AchievementAttr {
 	private int current,total;
 
 	/**
