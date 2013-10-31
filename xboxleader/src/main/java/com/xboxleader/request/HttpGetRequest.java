@@ -58,14 +58,23 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 		try 
 		{
 			HttpResponse response = client.execute(get);
-
 			if (response.getStatusLine().getStatusCode() == 200)
 			{
 				String result = EntityUtils.toString(response.getEntity());
 				return new Gson().fromJson(result, clazz);
 			}
+			if (response.getStatusLine().getStatusCode() >= 501 || response.getStatusLine().getStatusCode() <= 503)
+			{
+				String result = EntityUtils.toString(response.getEntity());
+				return new Gson().fromJson(result, clazz);
+			}
+			
 			else //throws exception when unsuccessful request returned
-				throw new XboxLeaderException(EntityUtils.toString(response.getEntity()));
+			{
+				StringBuilder builder = new StringBuilder(response.getStatusLine().toString());
+				builder.append(EntityUtils.toString(response.getEntity()));
+				throw new XboxLeaderException(builder.toString());
+			}
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

@@ -101,6 +101,9 @@ public class XboxLeader {
 		if (gamerTag == null)
 			throw new NullPointerException("null argument supplied for gamertag");
 		
+		if (gamerTag.isEmpty())
+			throw new IllegalArgumentException("GamerTag is empty");
+		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("gamertag", gamerTag);
 		map.put(region, getRegion());
@@ -121,6 +124,9 @@ public class XboxLeader {
 	{
 		if (gamerTag == null)
 			throw new NullPointerException("null argument supplied for gamertag");
+		
+		if (gamerTag.isEmpty())
+			throw new IllegalArgumentException("GamerTag is empty");
 
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("gamertag", gamerTag);
@@ -143,8 +149,14 @@ public class XboxLeader {
 		if (gamerTag == null)
 			throw new NullPointerException("null argument supplied for gamertag");
 		
+		if (gamerTag.isEmpty())
+			throw new IllegalArgumentException("GamerTag is empty");
+		
 		if (gameId == null)
 			throw new NullPointerException("null argument supplied for gameId");
+		
+		if (gameId.isEmpty())
+			throw new IllegalArgumentException("GameId is empty");
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("gamertag", gamerTag);
@@ -166,6 +178,9 @@ public class XboxLeader {
 	{
 		if (gamerTag == null)
 			throw new NullPointerException("null argument supplied for gamertag");
+		
+		if (gamerTag.isEmpty())
+			throw new IllegalArgumentException("GamerTag is empty");
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("gamertag", gamerTag);
