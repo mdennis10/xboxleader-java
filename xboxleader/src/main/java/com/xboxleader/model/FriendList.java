@@ -1,27 +1,29 @@
 package com.xboxleader.model;
 
 public class FriendList {
-	private String friend,lastseen,status;
+	private String gamertag,lastseen,status;
 	private int gamerscore;
 	private boolean online;
 	private GamerPic gamerpic;
-	
+
+
+
 	/**
-	 * @return the friend
+	 * @return the gamertag
 	 */
-	public String getFriend() {
-		return friend;
+	public String getGamertag() {
+		return gamertag;
 	}
-	
-	
+
+
 	/**
-	 * @param friend the friend to set
+	 * @param gamertag the gamertag to set
 	 */
-	public void setFriend(String friend) {
-		this.friend = friend;
+	public void setGamertag(String gamertag) {
+		this.gamertag = gamertag;
 	}
-	
-	
+
+
 	/**
 	 * @return the lastseen
 	 */
@@ -108,7 +110,7 @@ public class FriendList {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("FriendList [friend=").append(friend)
+		builder.append("FriendList [gamertag=").append(gamertag)
 				.append(", lastseen=").append(lastseen).append(", status=")
 				.append(status).append(", gamerscore=").append(gamerscore)
 				.append(", online=").append(online).append(", gamerpic=")
