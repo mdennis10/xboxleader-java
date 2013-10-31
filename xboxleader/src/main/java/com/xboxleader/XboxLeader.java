@@ -44,6 +44,14 @@ public class XboxLeader {
 		this.apiKey = apiKey;
 	}//end Overrided constructor
 	
+	
+	/**
+	 * Default XboxLeader Constructor.
+	 * [Note] By using this constructor
+	 * all Api class will be to xboxleaders.com
+	 * .Using this is not recommended for production
+	 * usage.
+	 */
 	public XboxLeader ()
 	{
 		apiKey = null;
