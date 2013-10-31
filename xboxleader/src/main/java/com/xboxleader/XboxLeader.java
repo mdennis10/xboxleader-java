@@ -32,15 +32,7 @@ public class XboxLeader {
 	{
 		this.apiKey = apiKey;
 		this.region = region.toString();
-		properties = new Properties();
-	
-		try {
-			properties.load(XboxLeader.class.getResourceAsStream("config.properties"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		loadConfig();
 	}//end Overrided constructor 
 	
 	
@@ -54,6 +46,7 @@ public class XboxLeader {
 	public XboxLeader (String apiKey)
 	{
 		this.apiKey = apiKey;
+		loadConfig();
 	}//end Overrided constructor
 	
 	
@@ -67,6 +60,7 @@ public class XboxLeader {
 	public XboxLeader ()
 	{
 		apiKey = null;
+		loadConfig();
 	}//end Default construtor
 	
 	
@@ -87,7 +81,7 @@ public class XboxLeader {
 	 */
 	public String getRegion ()
 	{
-		return (region == null)? "en-US" : region;
+		return (region == null)? Region.UNITED_STATES.toString() : region;
 	}//end getRegion method 
 	
 	
@@ -100,7 +94,18 @@ public class XboxLeader {
 		return apiKey;
 	}//end getApiKey method
 
-
+	
+	private void loadConfig ()
+	{
+		properties = new Properties();
+		try {
+			properties.load(XboxLeader.class.getResourceAsStream("config.properties"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}//end loadConfig method
+	
 
 	/**
 	 * Get Xbox Live Profile
@@ -120,7 +125,7 @@ public class XboxLeader {
 		map.put("gamertag", gamerTag);
 		map.put(region, getRegion());
 		
-		Request<Profile> request = new HttpGetRequest<Profile>(getApiKey(),buildPath(map,"/profile.json"), Profile.class);
+		Request<Profile> request = new HttpGetRequest<Profile>(getApiKey(),buildPath(map,properties.getProperty("profile")), Profile.class);
 		return request.execute();
 	}//end getProfile method
 	
@@ -144,7 +149,7 @@ public class XboxLeader {
 		map.put("gamertag", gamerTag);
 		map.put("region", getRegion());
 		
-		Request<Game> request = new HttpGetRequest<Game>(getApiKey(),buildPath(map, "/games.json"), Game.class);
+		Request<Game> request = new HttpGetRequest<Game>(getApiKey(),buildPath(map, properties.getProperty("games")), Game.class);
 		return request.execute();
 	}//end getGames method
 	
@@ -175,7 +180,7 @@ public class XboxLeader {
 		map.put("gameid", gameId);
 		map.put("region",getRegion());
 		
-		Request<Achievement> request = new HttpGetRequest<Achievement>(getApiKey(), buildPath(map, "/achievements.json"), Achievement.class);
+		Request<Achievement> request = new HttpGetRequest<Achievement>(getApiKey(), buildPath(map, properties.getProperty("achievements")), Achievement.class);
 		return request.execute();
 	}//end getAchievement method
 	
@@ -198,13 +203,13 @@ public class XboxLeader {
 		map.put("gamertag", gamerTag);
 		map.put("region", getRegion());
 		
-		Request<Friend> request = new HttpGetRequest<Friend>(getApiKey(), buildPath(map, "/friends.json"), Friend.class);
+		Request<Friend> request = new HttpGetRequest<Friend>(getApiKey(), buildPath(map,properties.getProperty("friends")), Friend.class);
 		return request.execute();
 	}//end getFriend method
 	
 	
 	/**
-	 * Build URL path need for request.
+	 * Build URL path needed for request.
 	 * @author mario
 	 * @param Map<String,String>
 	 * @param path
