@@ -1,9 +1,11 @@
 package com.xboxleader;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Map.Entry;
 
 import com.xboxleader.model.Achievement;
@@ -16,6 +18,7 @@ import com.xboxleader.request.Request;
 public class XboxLeader {
 	private final String apiKey;
 	private String region;
+	private Properties properties;
 	
 	/**
 	 * XboxLeader Overrided Constructor. 
@@ -29,6 +32,15 @@ public class XboxLeader {
 	{
 		this.apiKey = apiKey;
 		this.region = region.toString();
+		properties = new Properties();
+	
+		try {
+			properties.load(XboxLeader.class.getResourceAsStream("config.properties"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}//end Overrided constructor 
 	
 	

@@ -58,12 +58,13 @@ public final class HttpGetRequest<T> extends HttpRequest<T> {
 		try 
 		{
 			HttpResponse response = client.execute(get);
+			
 			if (response.getStatusLine().getStatusCode() == 200)
 			{
 				String result = EntityUtils.toString(response.getEntity());
 				return new Gson().fromJson(result, clazz);
 			}
-			if (response.getStatusLine().getStatusCode() >= 501 || response.getStatusLine().getStatusCode() <= 503)
+			if (response.getStatusLine().getStatusCode() >= 501 && response.getStatusLine().getStatusCode() <= 503)
 			{
 				String result = EntityUtils.toString(response.getEntity());
 				return new Gson().fromJson(result, clazz);
