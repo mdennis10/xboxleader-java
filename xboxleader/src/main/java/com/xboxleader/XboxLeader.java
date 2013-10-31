@@ -22,10 +22,10 @@ public class XboxLeader {
 	 * @param apiKey
 	 * @param region
 	 */
-	public XboxLeader (String apiKey,String region)
+	public XboxLeader (String apiKey,Region region)
 	{
 		this.apiKey = apiKey;
-		this.region = region;
+		this.region = region.toString();
 	}//end Overrided constructor 
 	
 	
