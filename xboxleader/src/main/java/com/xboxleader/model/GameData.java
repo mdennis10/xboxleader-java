@@ -6,7 +6,7 @@ public class GameData {
 	private int totalgames,progress;
 	private String gamertag,freshness;
 	private GamerScore gamerscore;
-	private Achievements achievements;
+	private AchievementAttr achievements;
 	private List<GameList> games;
 
 	
@@ -95,7 +95,7 @@ public class GameData {
 	/**
 	 * @return the achievements
 	 */
-	public Achievements getAchievements() {
+	public AchievementAttr getAchievements() {
 		return achievements;
 	}
 
@@ -103,7 +103,7 @@ public class GameData {
 	/**
 	 * @param achievements the achievements to set
 	 */
-	public void setAchievements(Achievements achievements) {
+	public void setAchievements(AchievementAttr achievements) {
 		this.achievements = achievements;
 	}
 	

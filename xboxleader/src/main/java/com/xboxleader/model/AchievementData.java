@@ -1,10 +1,13 @@
 package com.xboxleader.model;
 
+import java.util.List;
+
 public class AchievementData {
 	private String gamertag,game,lastplayed;
 	private int progress;
 	private GamerScore gamerscore;
-	private Achievements achievement;
+	private AchievementAttr achievement;
+	private List<AchievementList> achievements;
 	
 	
 	/**
@@ -100,7 +103,7 @@ public class AchievementData {
 	/**
 	 * @return the achievement
 	 */
-	public Achievements getAchievement() 
+	public AchievementAttr getAchievement() 
 	{
 		return achievement;
 	}
@@ -108,9 +111,25 @@ public class AchievementData {
 	/**
 	 * @param achievement the achievement to set
 	 */
-	public void setAchievement(Achievements achievement) 
+	public void setAchievement(AchievementAttr achievement) 
 	{
 		this.achievement = achievement;
+	}
+
+
+	/**
+	 * @return the achievements
+	 */
+	public List<AchievementList> getAchievements() {
+		return achievements;
+	}
+
+
+	/**
+	 * @param achievements the achievements to set
+	 */
+	public void setAchievements(List<AchievementList> achievements) {
+		this.achievements = achievements;
 	}
 
 
@@ -118,22 +137,14 @@ public class AchievementData {
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString() 
-	{
+	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("AchievementData [gamertag=");
-		builder.append(gamertag);
-		builder.append(", game=");
-		builder.append(game);
-		builder.append(", lastplayed=");
-		builder.append(lastplayed);
-		builder.append(", progress=");
-		builder.append(progress);
-		builder.append(", gamerscore=");
-		builder.append(gamerscore);
-		builder.append(", achievement=");
-		builder.append(achievement);
-		builder.append("]");
+		builder.append("AchievementData [gamertag=").append(gamertag)
+				.append(", game=").append(game).append(", lastplayed=")
+				.append(lastplayed).append(", progress=").append(progress)
+				.append(", gamerscore=").append(gamerscore)
+				.append(", achievement=").append(achievement)
+				.append(", achievements=").append(achievements).append("]");
 		return builder.toString();
 	}
 }//end AchievementData class

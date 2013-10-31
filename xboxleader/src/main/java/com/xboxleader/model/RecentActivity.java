@@ -11,12 +11,12 @@ public class RecentActivity {
 	private GamerScore gamerscore;
 	private String lastplayed;
 	private double progress;
-	private Achievements achievements;
+	private AchievementAttr achievements;
 	
 	/**
 	 * @return the achievements
 	 */
-	public Achievements getAchievements() {
+	public AchievementAttr getAchievements() {
 		return achievements;
 	}
 
@@ -24,7 +24,7 @@ public class RecentActivity {
 	/**
 	 * @param achievements the achievements to set
 	 */
-	public void setAchievements(Achievements achievements) {
+	public void setAchievements(AchievementAttr achievements) {
 		this.achievements = achievements;
 	}
 
