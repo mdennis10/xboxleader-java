@@ -18,16 +18,16 @@ Mashape:
      Profile profile = xboxLeader.getProfile(gamerTag);
      
 #### Api methods Covered
- getProfile (String gamerTag)
- getGame (String gamerTag)
- getAchievement (String gamerTag,String gameId)
- getFriend (String gamerTag)
- getRegion ()
- setRegion (Region region)
+  getProfile (String gamerTag)
+  getGame (String gamerTag)
+  getAchievement (String gamerTag,String gameId)
+  getFriend (String gamerTag)
+  getRegion ()
+  setRegion (Region region)
  
  ## Necessary prerequisites
- Java 1.5 or higher,Gson,Apache HttpClient,Maven
+  Java 1.5 or higher,Gson,Apache HttpClient,Maven
  
  
  #### Building the source
- Sources can be built using Maven. The POM.xml contains all dependency required.
+  Sources can be built using Maven. The POM.xml contains all dependency required.
