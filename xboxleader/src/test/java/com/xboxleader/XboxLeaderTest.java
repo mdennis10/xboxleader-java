@@ -54,16 +54,6 @@ public class XboxLeaderTest {
 	
 	
 	@Test
-	public void getApi ()
-	{
-		String api = "apikey";
-		XboxLeader xboxLeader = new XboxLeader(api);
-		Assert.assertNotNull(xboxLeader.getApiKey());
-		Assert.assertEquals(api, xboxLeader.getApiKey());
-	}//end getApi method
-	
-	
-	@Test
 	public void region ()
 	{
 		XboxLeader xboxLeader = new XboxLeader();
