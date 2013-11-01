@@ -61,7 +61,21 @@ public class XboxLeader {
 	{
 		apiKey = null;
 		loadConfig();
-	}//end Default construtor
+	}//end Default constructor
+	
+	/*
+	 * Load config.properties file
+	 */
+	private void loadConfig ()
+	{
+		properties = new Properties();
+		try {
+			properties.load(XboxLeader.class.getResourceAsStream("config.properties"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}//end loadConfig method
 	
 	
 	/**
@@ -94,17 +108,6 @@ public class XboxLeader {
 		return apiKey;
 	}//end getApiKey method
 
-	
-	private void loadConfig ()
-	{
-		properties = new Properties();
-		try {
-			properties.load(XboxLeader.class.getResourceAsStream("config.properties"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}//end loadConfig method
 	
 
 	/**
