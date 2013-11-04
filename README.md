@@ -1,7 +1,9 @@
 xboxleader-java
 ===============
 
-Java wrapper for xboxleaders.com to get data from Xbox Live
+Java wrapper for [xboxleader](http://xboxleaders.com/) to get data from Xbox Live. This wrapper
+support Java SE, Java EE, Android and Blackberry applications.[Note] Use asynchronous methods for
+Android and Blackberry support.
 
 ## Description
 
