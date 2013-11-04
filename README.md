@@ -12,10 +12,20 @@ xboxleader:
      XboxLeader xboxLeader = new XboxLeader ();
      Profile profile = xboxLeader.getProfile(gamerTag);
      
+     
 Mashape:
 
      XboxLeader xboxLeader = new XboxLeader (api);
      Profile profile = xboxLeader.getProfile(gamerTag);
+     
+Asychronous:
+
+     xboxLeader.getProfile(gamerTag,new ResultListener<Profile> (){
+          public void response (Profile profile)
+          {
+               //Do sometime with data returned
+          }
+     });
      
 #### Api methods Covered
 
