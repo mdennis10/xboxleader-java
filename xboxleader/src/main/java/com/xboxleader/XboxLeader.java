@@ -133,6 +133,33 @@ public class XboxLeader {
 	}//end getProfile method
 	
 	
+	/**
+	 * Get Xbox Live Profile asynchronously.
+	 * @author Mario 
+	 * @param gamerTag
+	 * @return Profile
+	 */
+	public void getProfile (String gamerTag,ResultListener<Profile> listener)
+	{
+		if (gamerTag == null)
+			throw new NullPointerException("null argument supplied for gamertag");
+		
+		if (gamerTag.isEmpty())
+			throw new IllegalArgumentException("GamerTag is empty");
+		
+		if (listener == null)
+			throw new NullPointerException("null argument supplied for ResponseListener");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("gamertag", gamerTag);
+		map.put(region, getRegion());
+		
+		Request<Profile> request = new HttpGetRequest<Profile>(getApiKey(),buildPath(map,properties.getProperty("profile")), Profile.class);
+		ThreadClient<Profile> client = new ThreadClient<Profile>(request, listener);
+		client.execute();
+	}//end getProfile method
+	
+	
 	
 	/**
 	 * Get Xbox Live Games.
@@ -157,9 +184,36 @@ public class XboxLeader {
 	}//end getGames method
 	
 	
+	/**
+	 * Get Xbox Live Games asynchronously.
+	 * @author Mario
+	 * @param gamerTag
+	 * @return Game
+	 */
+	public void getGame (String gamerTag, ResultListener<Game> listener)
+	{
+		if (gamerTag == null)
+			throw new NullPointerException("null argument supplied for gamertag");
+		
+		if (gamerTag.isEmpty())
+			throw new IllegalArgumentException("GamerTag is empty");
+		
+		if (listener == null)
+			throw new NullPointerException("null argument supplied for ResponseListener");
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("gamertag", gamerTag);
+		map.put("region", getRegion());
+		
+		Request<Game> request = new HttpGetRequest<Game>(getApiKey(),buildPath(map, properties.getProperty("games")), Game.class);
+		ThreadClient<Game> client = new ThreadClient<Game>(request, listener);
+		
+		client.execute();
+	}//end getGames method
+	
 	
 	/**
-	 * Get Xbox Live Achievements.
+	 * Get Xbox Live Achievements asynchronously.
 	 * @author Mario
 	 * @param gamerTag
 	 * @return Achievement
@@ -187,6 +241,39 @@ public class XboxLeader {
 		return request.execute();
 	}//end getAchievement method
 	
+	/**
+	 * Get Xbox Live Achievements.
+	 * @author Mario
+	 * @param gamerTag
+	 * @return Achievement
+	 */
+	public void getAchievement (String gamerTag,String gameId,ResultListener<Achievement> listener)
+	{
+		if (gamerTag == null)
+			throw new NullPointerException("null argument supplied for gamertag");
+		
+		if (gamerTag.isEmpty())
+			throw new IllegalArgumentException("GamerTag is empty");
+		
+		if (gameId == null)
+			throw new NullPointerException("null argument supplied for gameId");
+		
+		if (gameId.isEmpty())
+			throw new IllegalArgumentException("GameId is empty");
+		
+		if (listener == null)
+			throw new NullPointerException("null argument supplied for ResponseListener");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("gamertag", gamerTag);
+		map.put("gameid", gameId);
+		map.put("region",getRegion());
+		
+		Request<Achievement> request = new HttpGetRequest<Achievement>(getApiKey(), buildPath(map, properties.getProperty("achievements")), Achievement.class);
+		ThreadClient<Achievement> client = new ThreadClient<Achievement>(request, listener);
+		client.execute();
+	}//end getAchievement method
+	
 	
 	/**
 	 * Get Xbox Live Friends.
@@ -208,6 +295,30 @@ public class XboxLeader {
 		
 		Request<Friend> request = new HttpGetRequest<Friend>(getApiKey(), buildPath(map,properties.getProperty("friends")), Friend.class);
 		return request.execute();
+	}//end getFriend method
+	
+	
+	/**
+	 * Get Xbox Live Friends asynchronously.
+	 * @author Mario
+	 * @param gamerTag
+	 * @return Friend 
+	 */
+	public void getFriend (String gamerTag,ResultListener<Friend> listener)
+	{
+		if (gamerTag == null)
+			throw new NullPointerException("null argument supplied for gamertag");
+		
+		if (gamerTag.isEmpty())
+			throw new IllegalArgumentException("GamerTag is empty");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("gamertag", gamerTag);
+		map.put("region", getRegion());
+		
+		Request<Friend> request = new HttpGetRequest<Friend>(getApiKey(), buildPath(map,properties.getProperty("friends")), Friend.class);
+		ThreadClient<Friend> client = new ThreadClient<Friend>(request, listener);
+		client.execute();
 	}//end getFriend method
 	
 	
