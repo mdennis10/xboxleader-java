@@ -25,7 +25,7 @@ Asychronous:
      xboxLeader.getProfile(gamerTag,new ResultListener<Profile> (){
           public void response (Profile profile)
           {
-               //Do sometime with data returned
+               //Do something with data returned
           }
      });
      
